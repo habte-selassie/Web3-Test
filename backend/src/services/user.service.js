@@ -11,6 +11,7 @@ const Wallet = require('../utils/wallet.utils');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+require('dotenv').config();
 const { raw } = require('sqlstring');
 const emailService = require('./emailer.service')
 const i18n = require('i18n')
@@ -19,20 +20,18 @@ dotenv.config();
 
 class UserService {
     static sendEmail(email, uniqueString, emailType) {
-console.log(process.env.EMAIL_HOST);
-console.log(process.env.EMAIL_PORT);
-console.log(process.env.EMAIL_USER);
-console.log(process.env.EMAIL_PWD);
+
 
         var transport = nodemailer.createTransport({
-            //service: process.env.EMAIL_SERVICE,
             host: process.env.EMAIL_HOST,
             port: Number(process.env.EMAIL_PORT),
+            secure: true, // Use SSL/TLS
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PWD
             }
         });
+        
         var mailOptions = {}
         if (emailType === EmailType.EmailVerify) {
             mailOptions = {

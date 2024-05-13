@@ -6,15 +6,16 @@ i18n.configure({
     defaultLocale: 'En',
 })
 
+require('dotenv').config();
+
 module.exports = {
     deliverEmail: function (dest, subject, body) {
         var transport = nodemailer.createTransport({
-            service: process.env.EMAIL_SERVICE,
-            //host: process.env.EMAIL_HOST,
-            //port: Number(process.env.EMAIL_PORT),
+            host: process.env.EMAIL_HOST,
+            port: Number(process.env.EMAIL_PORT),
+            secure: true, // Use SSL/TLS
             auth: {
-                //user: process.env.EMAIL_USER,
-                user: process.env.EMAIL,
+                user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PWD
             }
         });
