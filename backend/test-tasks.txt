@@ -1,0 +1,19 @@
+Allan Rowley  4:32 PM
+
+Thank you for expressing your interest in joining our company and test project for simulating your skills.
+
+Tasks:
+ - Fix verification issue on register and login.
+ - Add Wallet connect on profile page using web3
+ - Add current Eth price on user profile page.
+
+Should you have any questions or require any assistance during the testing phase, please do not hesitate to reach out to me.
+
+Additionally, please document any bugs, glitches, or areas for improvement that you encounter during the testing process.
+
+You can upload the fixed project on your github and can send me your github repo link.
+
+We will review and then it is perfect, you will take interview with Team for working on project.
+Thank you once again for your contribution. We look forward to working together to build a robust and reliable project.
+Bitbucket
+bitbucket.org
