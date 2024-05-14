@@ -21,7 +21,7 @@ function AccountReg(props) {
   const [inviteCode, setInviteCode] = useState("");
   const [t] = useTranslation();
   const navigate = useNavigate();
-   const ServerUrl = SERVER_URL;
+  const ServerUrl = SERVER_URL;
   const EmailVerifyUrl = EMAIL_VERIFY_URL;
   const SignUpUrl = SIGNUP_URL;
   const onChange=(e)=>{
@@ -42,14 +42,17 @@ function AccountReg(props) {
     try {
       const response = await axios.post(EmailVerifyUrl,  {
         email: email,
-        locale: "en" // Set the default locale or retrieve it from another source
+        
+        locale: (localStorage.getItem('locale') || "Mn")
+        // locale: "en" // Set the default locale or retrieve it from another source
       });
       
       if (response.data.response) {
         message.success(t("E-mail sent successfully"));
+       console.log(verificationCode)
       } else {
         message.error(t("Failed to send verification code"));
-        console.log(verificationCode)
+        //console.log(verificationCode)
       }
     } catch (error) {
       message.error(t("Error sending verification code"));
@@ -203,8 +206,21 @@ function AccountReg(props) {
     </RegCard>
   );
 }
-
 export default AccountReg;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { Button ,Card,Input,Row, Col,Checkbox,Form  } from 'antd';
 // import React, { useState, useEffect } from 'react';
 // import { Link } from "react-router-dom";

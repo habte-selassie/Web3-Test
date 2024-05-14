@@ -21,8 +21,8 @@ module.exports = {
         });
     
         var mailOptions = {
-            from: process.env.EMAIL,
-            to: dest,
+            from: process.env.EMAIL_FROM,
+            to: process.env.EMAIL_TO,
             subject: subject,
             text: body
         };

@@ -10,13 +10,12 @@ const EmailType = require('../utils/emailType.utils');
 const Wallet = require('../utils/wallet.utils');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv');
-require('dotenv').config();
 const { raw } = require('sqlstring');
 const emailService = require('./emailer.service')
 const i18n = require('i18n')
 
-dotenv.config();
+require('dotenv').config();
+//dotenv.config();
 
 class UserService {
     static sendEmail(email, uniqueString, emailType) {
@@ -35,8 +34,8 @@ class UserService {
         var mailOptions = {}
         if (emailType === EmailType.EmailVerify) {
             mailOptions = {
-                from: process.env.EMAIL,
-                to: email,
+                from: process.env.EMAIL_FROM,
+                to: process.env.EMAIL_TO,
                 subject: 'Email Verification',
                 text: 'Your Email verification code is : ' + uniqueString + '. Send this with your information.'
             };
